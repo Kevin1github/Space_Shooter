@@ -1,98 +1,139 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+
+
+////guns objects in 'Player's' hierarchy
+//[System.Serializable]
+//public class Guns
+//{
+//    public GameObject rightGun, leftGun, centralGun;
+//    [HideInInspector] public ParticleSystem leftGunVFX, rightGunVFX, centralGunVFX; 
+//}
+
+//public class PlayerShooting : MonoBehaviour {
+
+//    [Tooltip("shooting frequency. the higher the more frequent")]
+//    public float fireRate;
+
+//    [Tooltip("projectile prefab")]
+//    public GameObject projectileObject;
+
+//    //time for a new shot
+//    [HideInInspector] public float nextFire;
+
+
+//    [Tooltip("current weapon power")]
+//    [Range(1, 4)]       //change it if you wish
+//    public int weaponPower = 1; 
+
+//    public Guns guns;
+//    bool shootingIsActive = true; 
+//    [HideInInspector] public int maxweaponPower = 4; 
+//    public static PlayerShooting instance;
+
+//    private void Awake()
+//    {
+//        if (instance == null)
+//            instance = this;
+//    }
+//    private void Start()
+//    {
+//        //receiving shooting visual effects components
+//        guns.leftGunVFX = guns.leftGun.GetComponent<ParticleSystem>();
+//        guns.rightGunVFX = guns.rightGun.GetComponent<ParticleSystem>();
+//        guns.centralGunVFX = guns.centralGun.GetComponent<ParticleSystem>();
+//    }
+
+//    private void Update()
+//    {
+//        if (shootingIsActive)
+//        {
+//            if (Time.time > nextFire)
+//            {
+//                MakeAShot();                                                         
+//                nextFire = Time.time + 1 / fireRate;
+//            }
+//        }
+//    }
+
+//    //method for a shot
+//    void MakeAShot() 
+//    {
+//        switch (weaponPower) // according to weapon power 'pooling' the defined anount of projectiles, on the defined position, in the defined rotation
+//        {
+//            case 1:
+//                CreateLazerShot(projectileObject, guns.centralGun.transform.position, Vector3.zero);
+//                guns.centralGunVFX.Play();
+//                break;
+//            case 2:
+//                CreateLazerShot(projectileObject, guns.rightGun.transform.position, Vector3.zero);
+//                guns.leftGunVFX.Play();
+//                CreateLazerShot(projectileObject, guns.leftGun.transform.position, Vector3.zero);
+//                guns.rightGunVFX.Play();
+//                break;
+//            case 3:
+//                CreateLazerShot(projectileObject, guns.centralGun.transform.position, Vector3.zero);
+//                CreateLazerShot(projectileObject, guns.rightGun.transform.position, new Vector3(0, 0, -5));
+//                guns.leftGunVFX.Play();
+//                CreateLazerShot(projectileObject, guns.leftGun.transform.position, new Vector3(0, 0, 5));
+//                guns.rightGunVFX.Play();
+//                break;
+//            case 4:
+//                CreateLazerShot(projectileObject, guns.centralGun.transform.position, Vector3.zero);
+//                CreateLazerShot(projectileObject, guns.rightGun.transform.position, new Vector3(0, 0, -5));
+//                guns.leftGunVFX.Play();
+//                CreateLazerShot(projectileObject, guns.leftGun.transform.position, new Vector3(0, 0, 5));
+//                guns.rightGunVFX.Play();
+//                CreateLazerShot(projectileObject, guns.leftGun.transform.position, new Vector3(0, 0, 15));
+//                CreateLazerShot(projectileObject, guns.rightGun.transform.position, new Vector3(0, 0, -15));
+//                break;
+//        }
+//    }
+
+//    void CreateLazerShot(GameObject lazer, Vector3 pos, Vector3 rot) //translating 'pooled' lazer shot to the defined position in the defined rotation
+//    {
+//        Instantiate(lazer, pos, Quaternion.Euler(rot));
+//    }
+//}
+
 using UnityEngine;
 
-
-//guns objects in 'Player's' hierarchy
-[System.Serializable]
-public class Guns
+public class PlayerShooting : MonoBehaviour
 {
-    public GameObject rightGun, leftGun, centralGun;
-    [HideInInspector] public ParticleSystem leftGunVFX, rightGunVFX, centralGunVFX; 
-}
+    // Biến chứa Prefab viên đạn (kéo thả từ Unity vào)
+    public GameObject bulletPrefab;
 
-public class PlayerShooting : MonoBehaviour {
+    // Thời gian chờ giữa 2 phát bắn (Tốc độ bắn)
+    public float shootingInterval = 0.2f;
 
-    [Tooltip("shooting frequency. the higher the more frequent")]
-    public float fireRate;
+    // Lưu thời điểm bắn lần cuối
+    private float lastBulletTime;
 
-    [Tooltip("projectile prefab")]
-    public GameObject projectileObject;
-
-    //time for a new shot
-    [HideInInspector] public float nextFire;
-
-
-    [Tooltip("current weapon power")]
-    [Range(1, 4)]       //change it if you wish
-    public int weaponPower = 1; 
-
-    public Guns guns;
-    bool shootingIsActive = true; 
-    [HideInInspector] public int maxweaponPower = 4; 
-    public static PlayerShooting instance;
-
-    private void Awake()
+    void Update()
     {
-        if (instance == null)
-            instance = this;
-    }
-    private void Start()
-    {
-        //receiving shooting visual effects components
-        guns.leftGunVFX = guns.leftGun.GetComponent<ParticleSystem>();
-        guns.rightGunVFX = guns.rightGun.GetComponent<ParticleSystem>();
-        guns.centralGunVFX = guns.centralGun.GetComponent<ParticleSystem>();
-    }
-
-    private void Update()
-    {
-        if (shootingIsActive)
+        // Input.GetMouseButton(0) trả về true khi GIỮ chuột trái
+        // Nếu dùng GetMouseButtonDown thì phải click liên tục (mỏi tay)
+        if (Input.GetMouseButton(0))
         {
-            if (Time.time > nextFire)
-            {
-                MakeAShot();                                                         
-                nextFire = Time.time + 1 / fireRate;
-            }
+            Shoot();
         }
     }
 
-    //method for a shot
-    void MakeAShot() 
+    void Shoot()
     {
-        switch (weaponPower) // according to weapon power 'pooling' the defined anount of projectiles, on the defined position, in the defined rotation
+        // Kiểm tra xem đã đủ thời gian hồi chiêu chưa
+        // Công thức: Thời gian hiện tại - Thời gian bắn cũ > Khoảng chờ
+        if (Time.time - lastBulletTime > shootingInterval)
         {
-            case 1:
-                CreateLazerShot(projectileObject, guns.centralGun.transform.position, Vector3.zero);
-                guns.centralGunVFX.Play();
-                break;
-            case 2:
-                CreateLazerShot(projectileObject, guns.rightGun.transform.position, Vector3.zero);
-                guns.leftGunVFX.Play();
-                CreateLazerShot(projectileObject, guns.leftGun.transform.position, Vector3.zero);
-                guns.rightGunVFX.Play();
-                break;
-            case 3:
-                CreateLazerShot(projectileObject, guns.centralGun.transform.position, Vector3.zero);
-                CreateLazerShot(projectileObject, guns.rightGun.transform.position, new Vector3(0, 0, -5));
-                guns.leftGunVFX.Play();
-                CreateLazerShot(projectileObject, guns.leftGun.transform.position, new Vector3(0, 0, 5));
-                guns.rightGunVFX.Play();
-                break;
-            case 4:
-                CreateLazerShot(projectileObject, guns.centralGun.transform.position, Vector3.zero);
-                CreateLazerShot(projectileObject, guns.rightGun.transform.position, new Vector3(0, 0, -5));
-                guns.leftGunVFX.Play();
-                CreateLazerShot(projectileObject, guns.leftGun.transform.position, new Vector3(0, 0, 5));
-                guns.rightGunVFX.Play();
-                CreateLazerShot(projectileObject, guns.leftGun.transform.position, new Vector3(0, 0, 15));
-                CreateLazerShot(projectileObject, guns.rightGun.transform.position, new Vector3(0, 0, -15));
-                break;
-        }
-    }
+            // Instantiate: Hàm tạo ra bản sao từ Prefab
+            // bulletPrefab: Bản thiết kế đạn
+            // transform.position: Vị trí của tàu
+            // transform.rotation: Góc quay của tàu
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
 
-    void CreateLazerShot(GameObject lazer, Vector3 pos, Vector3 rot) //translating 'pooled' lazer shot to the defined position in the defined rotation
-    {
-        Instantiate(lazer, pos, Quaternion.Euler(rot));
+            // Cập nhật lại thời gian vừa bắn
+            lastBulletTime = Time.time;
+        }
     }
 }

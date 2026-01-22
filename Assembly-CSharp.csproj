@@ -75,6 +75,7 @@
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\Wave.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\Enemy.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\LevelController.cs" />
+    <Compile Include="Assets\Bullet.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\VisualEffect.cs" />
   </ItemGroup>
   <ItemGroup>
