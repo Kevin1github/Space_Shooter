@@ -66,6 +66,7 @@
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\DirectMoving.cs" />
     <Compile Include="Assets\ShowLog.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\PlayerMoving.cs" />
+    <Compile Include="Assets\EnemyHealth.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\PlayerShooting.cs" />
     <Compile Include="Assets\Blinking.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />

@@ -101,19 +101,16 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    // Biến chứa Prefab viên đạn (kéo thả từ Unity vào)
     public GameObject bulletPrefab;
+    public float shootingInterval = 0.1f;
 
-    // Thời gian chờ giữa 2 phát bắn (Tốc độ bắn)
-    public float shootingInterval = 0.2f;
+    // 1. Thêm biến này để chỉnh lệch vị trí
+    public Vector3 bulletOffset = new Vector3(0, 0.7f, 0);
 
-    // Lưu thời điểm bắn lần cuối
     private float lastBulletTime;
 
     void Update()
     {
-        // Input.GetMouseButton(0) trả về true khi GIỮ chuột trái
-        // Nếu dùng GetMouseButtonDown thì phải click liên tục (mỏi tay)
         if (Input.GetMouseButton(0))
         {
             Shoot();
@@ -122,17 +119,10 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        // Kiểm tra xem đã đủ thời gian hồi chiêu chưa
-        // Công thức: Thời gian hiện tại - Thời gian bắn cũ > Khoảng chờ
         if (Time.time - lastBulletTime > shootingInterval)
         {
-            // Instantiate: Hàm tạo ra bản sao từ Prefab
-            // bulletPrefab: Bản thiết kế đạn
-            // transform.position: Vị trí của tàu
-            // transform.rotation: Góc quay của tàu
-            Instantiate(bulletPrefab, transform.position, transform.rotation);
-
-            // Cập nhật lại thời gian vừa bắn
+            // 2. Cộng thêm bulletOffset vào vị trí sinh ra đạn
+            Instantiate(bulletPrefab, transform.position + bulletOffset, transform.rotation);
             lastBulletTime = Time.time;
         }
     }
