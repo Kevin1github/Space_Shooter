@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 50267448758737772}
   - component: {fileID: 1586120747871537191}
   - component: {fileID: 5512469878900699364}
+  - component: {fileID: -4448281878208083392}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1152134415
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3c6d6674bfcb5ac498628dff731a28f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -173,3 +174,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 1280240331523082, guid: 45ae5851ef2832044bba82850372d67b,
     type: 3}
+  defaultHealthPoint: 3
+--- !u!114 &-4448281878208083392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373690366928948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f940a4b259a9b264d9a8132c34329c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 5512469878900699364}
+  damage: 1

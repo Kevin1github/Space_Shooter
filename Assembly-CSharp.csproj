@@ -63,6 +63,7 @@
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\RepeatingBackground.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\Projectile.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\PoolingController.cs" />
+    <Compile Include="Assets\Health.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\DirectMoving.cs" />
     <Compile Include="Assets\ShowLog.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\PlayerMoving.cs" />
@@ -75,6 +76,8 @@
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\Player.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\Wave.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\Enemy.cs" />
+    <Compile Include="Assets\EnemyAttack.cs" />
+    <Compile Include="Assets\PlayerHealth.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\LevelController.cs" />
     <Compile Include="Assets\Bullet.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\VisualEffect.cs" />
