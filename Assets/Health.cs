@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
         if (explosionPrefab != null)
         {
             var explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
-            Destroy(explosion, 1f); // [cite: 4360]
+            Destroy(explosion, 5f); // [cite: 4360]
         }
 
         // Hủy đối tượng
