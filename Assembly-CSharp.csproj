@@ -74,6 +74,7 @@
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\Bonus.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\FollowThePath.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\Player.cs" />
+    <Compile Include="Assets\BattleFlow.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\Wave.cs" />
     <Compile Include="Assets\Space Shooter Template FREE\Scripts\Enemy.cs" />
     <Compile Include="Assets\EnemyAttack.cs" />
