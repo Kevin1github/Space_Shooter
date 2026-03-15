@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 37
+  controlID: 47
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 38
+  controlID: 48
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -365,9 +365,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 72eaffffa4ecffffa0f9ffff14fbfffff6630000
+      m_SelectedIDs: 3ca5ffff
+      m_LastClickedID: -23236
+      m_ExpandedIDs: 3ca5ffffaac4ffff32d2fffff6f6ffffa0f7ffff14fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -774,9 +774,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.2032628, y: -13.01982, z: -0.091294885}
+    m_Target: {x: -0.007937846, y: -0.09445126, z: 10.17022}
     speed: 2
-    m_Value: {x: -2.2032628, y: -13.01982, z: -0.091294885}
+    m_Value: {x: -0.007937846, y: -0.09445126, z: 10.17022}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -826,9 +826,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 19.126228
+    m_Target: 5.593112
     speed: 2
-    m_Value: 19.126228
+    m_Value: 5.593112
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1001,7 +1001,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Space Shooter Template FREE/Sprites/Background
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1009,16 +1009,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Space Shooter Template FREE/Sprites/Background
+  - Assets
   m_LastFoldersGridSize: 71
   m_LastProjectPath: D:\Code-game\SpaceShooter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 122.00256}
-    m_SelectedIDs: 50630000
-    m_LastClickedID: 25424
-    m_ExpandedIDs: 000000002463000026630000286300002a6300002c6300002e630000ffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 6a640000
+    m_LastClickedID: 25706
+    m_ExpandedIDs: 000000006464000066640000686400006a6400006c6400006e640000b86400009c650000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1046,7 +1046,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002463000026630000286300002a6300002c6300002e630000
+    m_ExpandedIDs: 000000006464000066640000686400006a6400006c6400006e640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1074,7 +1074,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000426300006c6400006e6400008c64000090640000a46200000468ffff72670000
+    m_ExpandedInstanceIDs: c6230000426300006c6400006e6400008c64000090640000a46200000468ffff7267000036640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
