@@ -2,8 +2,17 @@
 
 public class FlyPath : MonoBehaviour
 {
-    public Waypoint[] waypoints;
+    public Waypoint[] waypoints; 
 
-    // Hàm Reset sẽ tự động tìm tất cả các Waypoint con và gom vào danh sách
-    private void Reset() => waypoints = GetComponentsInChildren<Waypoint>();
+    public Vector3 this[int index] => waypoints[index].transform.position;
+
+    private void OnDrawGizmos()
+    {
+        if (waypoints == null) return;
+     Gizmos.color = Color.green;
+    for (int i = 0; i<waypoints.Length - 1; i++)
+        {
+             Gizmos.DrawLine(waypoints[i].transform.position, waypoints[i + 1].transform.position);
+}
+    }
 }

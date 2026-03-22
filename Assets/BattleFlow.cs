@@ -7,6 +7,7 @@ public class BattleFlow : MonoBehaviour
     public GameObject gameWinUI; // Khai báo UI Game Win [cite: 139]
     public PlayerHealth playerHealth;
     public GameObject bgMusic;
+    public GameObject winCanvas;
 
     private void Start()
     {
@@ -15,12 +16,15 @@ public class BattleFlow : MonoBehaviour
         playerHealth.onDead += OnGameOver;
     }
 
-    private void Update()
+    void Update()
     {
-        // Liên tục kiểm tra, nếu số lượng địch <= 0 thì thắng [cite: 134, 138]
-        if (EnemyHealth.LivingEnemyCount <= 0)
+        // ĐIỀU KIỆN THẮNG: Đã đẻ xong hết các đợt VÀ không còn con quái nào sống sót
+        if (EnemySpawner.isAllWavesSpawned == true && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            OnGameWin();
+            if (winCanvas != null)
+            {
+                winCanvas.SetActive(true);
+            }
         }
     }
 
